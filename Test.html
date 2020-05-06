@@ -568,8 +568,8 @@ function createNewRecord (_index, _rightsHolder, _assetClass, _countDownStart, _
      // the transaction has been sent
      console.log("Creating new asset record on the blockchain. Please wait for confirmation...");
      // Send the tx to our contract:
-	 bulletProof.$newRecord(_index, _rightsHolder, _assetClass, _countDownStart, _ipfsNote), 
-	 {gasPrice : web3.toWei(4.1, 'Gwei') value: web3.toWei(0.04, "Ether")}
+	 bulletProof.$newRecord(_index, _rightsHolder, _assetClass, _countDownStart, _ipfsNote, 
+	 {gasPrice : web3.toWei(4.1, 'Gwei') value: web3.toWei(0.04, "Ether")},
 
 	 (error, result) => {
 		 if (error){
@@ -577,7 +577,7 @@ function createNewRecord (_index, _rightsHolder, _assetClass, _countDownStart, _
 		 }
 		 console.log("txHash: ", result);
 	 }
-	 
+	); 
     /*return bulletproof.methods.$newRecord(_index, _rightsHolder, _assetClass, _countDownStart, _ipfsNote)
     .send({from: userAccount, gas: "3000000", value: web3.utils.toWei("0.04", "ether")})*/
 }
